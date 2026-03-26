@@ -1,0 +1,45 @@
+#+TITLE: xDama (Checkers AI)
+#+AUTHOR: Jacopo Costantini
+
+* ♟️ xDama - Minimax Checkers Bot
+
+This is a legacy project from my first year of Computer Science at University.
+It is a competitive algorithm for Dama (Checkers) that reads from a =.txt= file
+and outputs the optimal next move.
+
+** 🧠 The Core Algorithm
+The brain of the bot is powered by the *Minimax algorithm* with *Alpha-Beta
+pruning*, evaluating board states up to a depth of 4 to predict the opponent's
+moves and select the best path to victory.
+
+** 🛠️ Developer's Retrospective
+I intentionally keep this repository untouched as a historical snapshot of my
+learning process. Looking back at this code today, it's a perfect example of how
+I initially approached C++ coming from a C mindset:
+
+- *The Good:* It implements the *Pimpl Idiom* (=Pointer to Implementation=) to
+  hide internal state, and a fully functional Minimax algorithm from scratch. It
+  handles memory allocation and custom doubly-linked lists without relying on
+  external libraries.
+- *What I would change today:* As a first-year student, I manually managed
+  memory with raw =new= and =delete= instead of using modern C++ smart pointers
+  (=std::unique_ptr=) or STL containers like =std::vector=. I also used macro
+  =#define= heavily instead of modern =constexpr=.
+
+** 🚀 Build & Run
+
+Ensure you have =make= and a C++ compiler installed.
+
+#+BEGIN_SRC bash
+# Compile the project
+make
+
+# Run the bot (Player 1)
+make run
+
+# Run memory leak checks (requires valgrind)
+make valgrind
+
+# Clean build artifacts
+make clean
+#+END_SRC
